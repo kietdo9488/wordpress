@@ -13,36 +13,21 @@
 
 <html class="no-js" <?php language_attributes(); ?>>
 
+<head>
+
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
-
-        <!--        Bootstrap 4-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!--        Ho si Hung module 3-->
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module3.css" type="text/css" media="screen" />
-        <!--        Ho si Hung module 8-->
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module8.css" type="text/css" media="screen" />
-
-        <!--        Script for bs4-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-		<!-- Module 2 & 7 - Vũ: -->
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module2.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module7.css" type="text/css" media="screen" />
-
-		<!-- Module 4 & 5 - Linh: -->
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module4.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module5.css" type="text/css" media="screen" />
-
-		<!-- Module 1 & 6 - Liêm: -->
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module1.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/module6.css" type="text/css" media="screen" />
 
 		<?php wp_head(); ?>
 
@@ -53,8 +38,8 @@
 		<?php
 		wp_body_open();
 		?>
-		<!-- thay doi header -->
-		<header id="site-header" class="header-footer-group" role="banner">
+
+		<header id="site-header" class="header-footer-group">
 
 			<div class="header-inner section-inner">
 
@@ -69,19 +54,16 @@
 
 						?>
 
-							<div id="search-header">
-							<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-									<span class="toggle-inner">
-										<span class="toggle-icon">
-											<?php twentytwenty_the_theme_svg( 'search' ); ?>
-										</span>
-										<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
-									</span>
-								</button><!-- .search-toggle -->
-							</div>
+						<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+							<span class="toggle-inner">
+								<span class="toggle-icon">
+									<?php twentytwenty_the_theme_svg( 'search' ); ?>
+								</span>
+								<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
+							</span>
+						</button><!-- .search-toggle -->
 
 					<?php } ?>
-					
 
 					<div class="header-titles">
 
@@ -95,20 +77,6 @@
 
 					</div><!-- .header-titles -->
 
-				<!-- Insert button Home and search-box by Liem -->
-				<div class="btn-wrapper">
-					<a href="index.php" class="home-btn">Home</a>
-				</div>
-
-				<div class="search-box-wrapper">
-					<div class="search-box">
-						<form action="" method="get" class="search-form">
-							<input type="text" class="search-field" name="s" placeholder="Search">
-							<input type="submit" class="search-submit" value="submit">
-						</form>
-					</div>
-				</div>
-
 					<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
 						<span class="toggle-inner">
 							<span class="toggle-icon">
@@ -120,7 +88,14 @@
 
 				</div><!-- .header-titles-wrapper -->
 
-				
+				<div class="search-box-wrapper">
+					<div class="search-box">
+						<form action="" method="get" class="search-form">
+							<input type="text" class="search-field" name="s" placeholder="Search">
+							<input type="submit" class="search-submit" value="submit">
+						</form>
+					</div>
+				</div>
 
 				<div class="header-navigation-wrapper">
 
@@ -128,7 +103,7 @@
 					if ( has_nav_menu( 'primary' ) || ! has_nav_menu( 'expanded' ) ) {
 						?>
 
-							<nav class="primary-menu-wrapper" aria-label="<?php echo esc_attr_x( 'Horizontal', 'menu', 'twentytwenty' ); ?>" role="navigation">
+							<nav class="primary-menu-wrapper" aria-label="<?php echo esc_attr_x( 'Horizontal', 'menu', 'twentytwenty' ); ?>">
 
 								<ul class="primary-menu reset-list-style">
 
@@ -192,21 +167,27 @@
 						if ( true === $enable_header_search ) {
 							?>
 
-								<div class="toggle-wrapper search-toggle-wrapper">
-									<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-										<span class="toggle-inner">
-											<?php twentytwenty_the_theme_svg( 'search' ); ?>
-											<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
-										</span>
-									</button><!-- .search-toggle -->
+							<div class="toggle-wrapper search-toggle-wrapper">
 
-									</div>
+								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+									<span class="toggle-inner">
+										<?php twentytwenty_the_theme_svg( 'search' ); ?>
+										<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
+									</span>
+								</button><!-- .search-toggle -->
+
+							</div>
 
 							<?php
 						}
 						?>
-						<!-- Add dropdown user menu by Liem -->
-						<div class="dropdown">
+
+						</div><!-- .header-toggles -->
+						<?php
+					}
+					?>
+					
+					<div class="dropdown" style="margin-left: 30px;">
 							<button class="btn btn-secondary dropdown-toggle user-module-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<div class="user-icon">
 							<i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -222,23 +203,17 @@
 							<a class="dropdown-item" href="#">Something else here</a>
 						</div>
 						</div>
-						</div><!-- .header-toggles -->
-						<?php
-					}
-					?>
-
+						</div>
 				</div><!-- .header-navigation-wrapper -->
+				
 
 			</div><!-- .header-inner -->
-
 			<?php
 			// Output the search modal (if it is activated in the customizer).
 			if ( true === $enable_header_search ) {
 				get_template_part( 'template-parts/modal-search' );
 			}
 			?>
-
-
 
 		</header><!-- #site-header -->
 
