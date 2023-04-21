@@ -75,7 +75,6 @@ function twentytwenty_theme_support() {
 		$logo_height = floor( $logo_height * 2 );
 	}
 
-
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -803,11 +802,3 @@ function twentytwenty_get_elements_array() {
 	 */
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
-function get_first_paragraph($post){
-	
-	
-	$str = wpautop( get_the_content() );
-	$str = substr( $str, 0, strpos( $str, '</p>' ) + 4 );
-	$str = strip_tags($str, '<a><strong><em>');
-	return '<p>' . $str . '</p>';
-	}
