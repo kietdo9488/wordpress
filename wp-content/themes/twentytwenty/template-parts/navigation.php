@@ -22,74 +22,36 @@ if ( $next_post || $prev_post ) {
 
 	?>
 
-	<nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>" aria-label="<?php esc_attr_e( 'Post', 'twentytwenty' ); ?>" role="navigation">
+	<nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>" aria-label="<?php esc_attr_e( 'Post', 'twentytwenty' ); ?>">
 
 		<hr class="styled-separator is-style-wide" aria-hidden="true" />
 
-        <div class="pagination-single-inner" id="another__post-wrapper">
+		<div class="pagination-single-inner">
 
-            <?php
-            if ( $prev_post ) {
-                // lấy ngày-tháng-năm bài viết.
-                $prev_post_new_post_date = $prev_post->post_date;
-                $prev_post_time = strtotime($prev_post_new_post_date);
-                $prev_post_newformat = date('y-m-d',$prev_post_time);
-                $prev_post_expore = explode("-",$prev_post_newformat);
-                $prev_post_day = $prev_post_expore[2];
-                $prev_post_month = $prev_post_expore[1];
-                $prev_post_year = $prev_post_expore[0];
+			<?php
+			if ( $prev_post ) {
+				?>
 
-                ?>
-                <!-- Bài viết trước -->
-                <div class="another__post">
-                    <div class="headlinesdate">
-                        <div class="headlinesdm">
-                            <div class="headlinesday"><?php echo$prev_post_day; ?></div>
-                            <div class="headlinesmonth"><?php echo$prev_post_month; ?></div>
-                        </div>
-                        <div class="headlinesyear"><?php echo$prev_post_year; ?></div>
-                    </div>
+				<a class="previous-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+					<span class="arrow" aria-hidden="true">&larr;</span>
+					<span class="title"><span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span></span>
+				</a>
 
-                    <div class="headlinestitle">
-                        <a href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
-                            <?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?>
-                        </a>
-                    </div>
-                </div>
-                <?php
-            }
+				<?php
+			}
 
-            if ( $next_post ) {
-                // lấy ngày-tháng-năm bài viết.
-                $next_post_new_post_date = $next_post->post_date;
-                $next_post_time = strtotime($next_post_new_post_date);
-                $next_post_newformat = date('y-m-d',$next_post_time);
-                $next_post_expore = explode("-",$next_post_newformat);
-                $next_post_day = $next_post_expore[2];
-                $next_post_month = $next_post_expore[1];
-                $next_post_year = $next_post_expore[0];
-                ?>
-                <!-- Bài viết tiếp theo -->
-                <div class="another__post">
-                    <div class="headlinesdate">
-                        <div class="headlinesdm">
-                            <div class="headlinesday"><?php echo $next_post_day; ?></div>
-                            <div class="headlinesmonth"><?php echo $next_post_month; ?></div>
-                        </div>
-                        <div class="headlinesyear"><?php echo $next_post_year; ?></div>
-                    </div>
+			if ( $next_post ) {
+				?>
 
-                    <div class="headlinestitle">
-                        <a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
-                            <?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?>
-                        </a>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
+				<a class="next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+					<span class="arrow" aria-hidden="true">&rarr;</span>
+						<span class="title"><span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span></span>
+				</a>
+				<?php
+			}
+			?>
 
-        </div><!-- .pagination-single-inner -->
+		</div><!-- .pagination-single-inner -->
 
 		<hr class="styled-separator is-style-wide" aria-hidden="true" />
 
