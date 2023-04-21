@@ -83,6 +83,15 @@
 
 				</div><!-- .header-titles-wrapper -->
 
+				<div class="search-box-wrapper">
+					<div class="search-box">
+						<form action="" method="get" class="search-form">
+							<input type="text" class="search-field" name="s" placeholder="Search">
+							<input type="submit" class="search-submit" value="submit">
+						</form>
+					</div>
+				</div>
+
 				<div class="header-navigation-wrapper">
 
 					<?php
