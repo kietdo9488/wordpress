@@ -1,35 +1,83 @@
 <?php
 /**
- * The template for displaying Author info
+ * Displays the post header
  *
  * @package WordPress
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
  */
 
-if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'show_author_bio', true ) ) :
-	?>
-<div class="author-bio">
-	<div class="author-title-wrapper">
-		<div class="author-avatar vcard">
-			<?php echo get_avatar( get_the_author_meta( 'ID' ), 160 ); ?>
-		</div>
-		<h2 class="author-title heading-size-4">
-			<?php
-			printf(
-				/* translators: %s: Author name. */
-				__( 'By %s', 'twentytwenty' ),
-				esc_html( get_the_author() )
-			);
+$entry_header_classes = '';
+
+$singular_group = '';
+
+if ( is_singular() ) {
+	$entry_header_classes .= ' header-footer-group';
+	$singular_group = 'singular-group-module6';
+}
+
+?>
+
+
+
+<header class="entry-header has-text-align-center<?php echo esc_attr( $entry_header_classes ); ?>">
+
+	<div class="entry-header-inner section-inner medium <?= $singular_group;?>">
+
+		<?php
+		/**
+		 * Allow child themes and plugins to filter the display of the categories in the entry header.
+		 *
+		 * @since Twenty Twenty 1.0
+		 *
+		 * @param bool Whether to show the categories in header. Default true.
+		 */
+		$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
+
+		if ( true === $show_categories && has_category() && !is_singular() ) {
 			?>
-		</h2>
-	</div><!-- .author-name -->
-	<div class="author-description">
-		<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
-		<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-			<?php _e( 'View Archive <span aria-hidden="true">&rarr;</span>', 'twentytwenty' ); ?>
-		</a>
-	</div><!-- .author-description -->
-</div><!-- .author-bio -->
-	<?php
-endif;
+
+			<div class="entry-categories">
+				<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
+			</div><!-- .entry-categories -->
+
+			<?php
+		}
+
+		if ( is_singular() ) {
+			the_title( '<h1 class="entry-title title-detail">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title heading-size-1"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+		}
+
+		$intro_text_width = '';
+
+		if ( is_singular() ) {
+			$intro_text_width = ' small';
+		} else {
+			$intro_text_width = ' thin';
+		}
+
+		if ( has_excerpt() && is_singular() ) {
+			?>
+
+			<div class="intro-text section-inner max-percentage<?php echo $intro_text_width; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
+				<?php the_excerpt(); ?>
+			</div>
+
+			<?php
+		}
+		
+
+		// Default to displaying the post meta.
+		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
+		?>
+		 <div class="<?= is_singular() ? 'overviewLine': ''?>"></div>
+
+	</div><!-- .entry-header-inner -->
+
+	
+
+
+</header><!-- .entry-header -->
+
