@@ -23,16 +23,9 @@
 		get_template_part( 'template-parts/featured-image' );
 	}
 
-	// Style content when it's detail page
-	$content_detail = '';
-	if(is_singular()) {
-		$content_detail = 'content-detail';
-	}
 	?>
 
-
-	<!-- Insert class content-detail here -->
-	<div class="post-inner <?php echo $content_detail ?> <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 
 		<div class="entry-content">
 
@@ -72,7 +65,7 @@
 		?>
 
 	</div><!-- .section-inner -->
-		<!-- thay doi content -->
+
 	<?php
 
 	if ( is_single() ) {
@@ -90,16 +83,7 @@
 
 		<div class="comments-wrapper section-inner">
 
-			<?php
-            if (is_user_logged_in())
-            {
-                ?>
-                <section class="card my-card">
-                    <?php comments_template(); ?>
-                </section>
-            <?php
-            }
-            ?>
+			<?php comments_template(); ?>
 
 		</div><!-- .comments-wrapper -->
 
