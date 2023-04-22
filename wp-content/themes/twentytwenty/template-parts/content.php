@@ -40,7 +40,7 @@
 					
 					<div class="cot result1"><?php echo get_the_post_thumbnail($post->ID, 'post-thumbnail', "class=img-fluid") ?></div>
 					<div class="cot result">
-						
+				
 						<div class="cot result2">
 							
 							<div class="ngay"><?php echo get_the_date('d', $post->ID); ?></div>
@@ -54,7 +54,6 @@
 					</div>
 
 				</div>
-				<!-- Su Noi Dung -->
 
 
 			</div><!-- .entry-content -->
